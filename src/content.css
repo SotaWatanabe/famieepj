@@ -1,0 +1,25 @@
+.Body {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    margin: auto;
+  
+    width: 600px;
+    height: 250px;
+}
+
+.explain {
+    font-size: 30px;
+}
+
+.input1 {
+    width:500px;
+    height:30px;
+}
+
+.input2 {
+    padding-left:225px;
+    padding-top:40px;
+}
