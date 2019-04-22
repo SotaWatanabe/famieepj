@@ -11,7 +11,15 @@
 }
 
 .explain {
-    font-size: 30px;
+    font-size: 35px;
+    width: 600px;
+    color: pink;
+    font-family: Hiragino Kaku Gothic StdN;
+}
+
+.explain2{
+    font-size: 20px;
+    color:white;
 }
 
 .input1 {
@@ -20,6 +28,41 @@
 }
 
 .input2 {
-    padding-left:225px;
     padding-top:40px;
+}
+
+.input3 {
+    display       : inline-block;
+    border-radius : 5%;          
+    font-size     : 18pt;        
+    text-align    : center;      
+    cursor        : pointer;     
+    padding       : 12px 12px;   
+    background    : pink;     
+    color         : #ffffff;     
+    line-height   : 1em;         
+    transition    : .3s;         
+    box-shadow    : 6px 6px 3px #666666;  
+    border        : 2px solid pink;    
+}
+
+.input3:hover {
+    box-shadow    : none;        
+    color         : pink;     
+    background    : #ffffff;     
+}
+
+Body{
+    background-image: url("family.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.output{
+    padding-top:50px;
+    color:white;
+    font-size:15px;
 }

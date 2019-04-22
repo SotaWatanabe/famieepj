@@ -39,6 +39,7 @@ export class Content extends Component {
         return (
             <div className="Body">
                 <p className="explain">番号を入力して愛の誓いを確認しよう</p>
+                <p className="explain2">以下の入力欄に0xから始まるトランザクションIDを入力してください。証明書を発行する際に入力した誓いの言葉を確認することができます。</p>
                 <div className="form">
                     <form name="myform" onSubmit={(e) => this.handleSubmit(e)}> 
                         <div>
@@ -48,7 +49,7 @@ export class Content extends Component {
                             <input type="submit" value="送信" className="input3"/>
                         </div>
                     </form>
-                    <div>{this.state.resp}</div>
+                    <div　className="output">{this.state.resp}</div> 
                 </div>
             </div>
         )
