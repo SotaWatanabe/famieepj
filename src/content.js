@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './content.css'
 import axios from 'axios';
-import CryptoJS from "crypto-js";
+// import CryptoJS from 'crypto-js';
+var crypto = require('crypto');
 
 // ハードこーどしちゃってる
 const ETHHERSCAN_ENDPOINT = 'https://api-ropsten.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=';
@@ -37,9 +38,8 @@ export class Content extends Component {
                 encoded += "%" + segments[i];
             }
 
-
             this.setState({
-                resp: decodeURI(encoded.slice(3)).replace(/%2C/g, ",")
+                resp: decodeURI(encoded.slice(3)).replace(/%2C/g, ",").replace(/%2F/g, "/").replace(/%2B/g, "+")
             })
         }).catch(e => {
             console.log(e)
@@ -55,12 +55,18 @@ export class Content extends Component {
 
     handleDecrypt(e) {
         e.preventDefault()
-        var encrypted = this.state.resp
-        console.log(encrypted)
-        var decrypted = CryptoJS.AES.decrypt(encrypted, this.state.key, {iv: "abcdefghijklmnop"});
-        console.log(decrypted)
-        // console.log(decrypted.toString(CryptoJS.enc.Utf8))
-        // console.log(decrypted.toString(CryptoJS.enc.Utf8));
+        var key = new Buffer(this.state.key);
+        var buf = new Buffer(this.state.resp);
+        var iv = buf.slice(0, 16).toString();
+        var encryptedData  = buf.toString();
+
+        var decipher = crypto.createDecipheriv('aes-128-cbc', key, iv);
+        var decrypted = decipher.update(encryptedData, 'base64', 'utf8');
+        decrypted += decipher.final('utf8');
+        
+        this.setState({
+            resp: decrypted
+        })
     }
 
     render() {
@@ -86,7 +92,7 @@ export class Content extends Component {
                             <input type="submit" value="復号" className="input3"/>
                         </div>
                     </form>
-                    <div　className="output">{this.state.resp}</div> 
+                    <div　className="output">{this.state.resp}</div>
                 </div>
             </div>
         )
