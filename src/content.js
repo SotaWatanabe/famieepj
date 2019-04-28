@@ -10,9 +10,12 @@ const ETHHERSCAN_ENDPOINT = 'https://api.etherscan.io/api?module=proxy&action=et
 export class Content extends Component {
     constructor(props) {
         super(props);
+
+
         this.state = {
             resp: "",
             key: "",
+            con:""
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -59,7 +62,7 @@ export class Content extends Component {
         return (
             <div ref={el => (this.instance = el)} className="Body">
                 <p className="explain">番号を入力して愛の誓いを確認しよう</p>
-                <p className="explain2">以下の入力欄に0xから始まるトランザクションIDを入力してください。<br />その次にパートナーシップ証明書で得たパスワードを入力します。<br />誓いの文字を確認しましょう。</p>
+                <p className="explain2">パートナーシップ証明書で得たパスワードを入力してください。<br />誓いの文字を確認しましょう。</p>
                 <div className="form">
                     <form className="form1" name="myform" onSubmit={(e) => this.handleSubmit(e)}>
                         <div>
@@ -70,6 +73,7 @@ export class Content extends Component {
                     </form>
 
                     <div　className="output">{"誓いの言葉："+ this.state.resp}</div>
+                    <div className="output">{"誓いの言葉："+ this.state.con}</div>
                 </div>
             </div>
         )
