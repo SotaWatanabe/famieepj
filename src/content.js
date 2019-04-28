@@ -22,8 +22,7 @@ export class Content extends Component {
         this.handleChangeKey = this.handleChangeKey.bind(this);
     }
 
-    handleSubmit(e) {
-        e.preventDefault()
+    componentDidMount() {
         const txHash = this.props.match.params.txHash
         axios.get(ETHHERSCAN_ENDPOINT+txHash)
         .then(results => {
@@ -33,21 +32,29 @@ export class Content extends Component {
                 encoded += "%" + segments[i];
             }
 
-            var key = new Buffer(this.state.key);
-            var resp = decodeURI(encoded.slice(3)).replace(/%2C/g, ",").replace(/%2F/g, "/").replace(/%2B/g, "+")
-            var buf = new Buffer(resp);
-            var iv = buf.slice(0, 16).toString();
-            var encryptedData  = buf.toString();
-
-            var decipher = crypto.createDecipheriv('aes-128-cbc', key, iv);
-            var decrypted = decipher.update(encryptedData, 'base64', 'utf8');
-            decrypted += decipher.final('utf8');
-
             this.setState({
-                resp: decrypted
+                con: decodeURI(encoded.slice(3)).replace(/%2C/g, ",").replace(/%2F/g, "/").replace(/%2B/g, "+")
             })
         }).catch(e => {
             console.log(e)
+        })
+    }
+
+    handleSubmit(e) {
+        e.preventDefault()
+
+        var resp = this.state.con
+        var key = new Buffer(this.state.key);
+        var buf = new Buffer(resp);
+        var iv = buf.slice(0, 16).toString();
+        var encryptedData  = buf.toString();
+
+        var decipher = crypto.createDecipheriv('aes-128-cbc', key, iv);
+        var decrypted = decipher.update(encryptedData, 'base64', 'utf8');
+        decrypted += decipher.final('utf8');
+
+        this.setState({
+            resp: decrypted
         })
     }
 
