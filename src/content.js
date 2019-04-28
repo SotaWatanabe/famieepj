@@ -11,25 +11,18 @@ export class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: "",
             resp: "",
             key: "",
         }
 
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeKey = this.handleChangeKey.bind(this);
     }
 
-    handleChange(e) {
-        this.setState({
-            text: e.target.value
-        })
-    }
-
     handleSubmit(e) {
         e.preventDefault()
-        axios.get(ETHHERSCAN_ENDPOINT+this.state.text)
+        const txHash = this.props.match.params.txHash
+        axios.get(ETHHERSCAN_ENDPOINT+txHash)
         .then(results => {
             const segments = results.data.result.input.toUpperCase().match(/.{2}/g);
             var encoded = ""
@@ -68,11 +61,7 @@ export class Content extends Component {
                 <p className="explain">番号を入力して愛の誓いを確認しよう</p>
                 <p className="explain2">以下の入力欄に0xから始まるトランザクションIDを入力してください。<br />その次にパートナーシップ証明書で得たパスワードを入力します。<br />誓いの文字を確認しましょう。</p>
                 <div className="form">
-                    <form className="form1" name="myform" onSubmit={(e) => this.handleSubmit(e)}> 
-                        <div>
-                            <input name="mytext" placeholder="0xから始まるトランザクションID" type="text" className="input1" onChange={(e) => this.handleChange(e)} />
-                        </div>
-                    
+                    <form className="form1" name="myform" onSubmit={(e) => this.handleSubmit(e)}>
                         <div>
                             <input name="mytext" placeholder="復号化パスワード" type="text" className="input1" onChange={(e) => this.handleChangeKey(e)} />
                         </div>

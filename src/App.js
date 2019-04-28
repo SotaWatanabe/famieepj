@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Content} from './content.js'
+import {Switch, BrowserRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -8,7 +9,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <Content/>
+        <Router>
+          <Switch>
+            <Route path="/:txHash" component={Content} />
+          </Switch>
+        </Router>
       </div>
     );
   }
