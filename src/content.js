@@ -5,7 +5,7 @@ import axios from 'axios';
 var crypto = require('crypto');
 
 // ハードこーどしちゃってる
-const ETHHERSCAN_ENDPOINT = 'https://api-ropsten.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=';
+const ETHHERSCAN_ENDPOINT = 'https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=';
 
 export class Content extends Component {
     constructor(props) {
