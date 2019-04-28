@@ -8,47 +8,32 @@ Body{
 }
 
 .explain{
-    font-size: 50px;
+    font-size: 20px;
+    color:white;
+    padding-top: 100px;
     color:pink;
-    font-family: "ヒラギノ角ゴシック";
-    padding-top: 250px;
-
-    font: bold 4em / 1 Verdana, Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    
-    text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-    
-    animation: explain 4s linear infinite;
-  }
-
-  /* 背景の横位置をズラす */
-  @keyframes explain {
-    to { background-position-x: 200%; }
   }
 
   .explain2{
-      font-size: 20px;
+      font-size: 15px;
       color:white;
-      font-size:25px;
+      margin-left:10px;
+      margin-right:10px;
   }
 
   .input1{
-    width: 30%;
-    height: 35px;
+    width: 50%;
+    height: 20px;
     font-size:100%;
   }
 
   .input2{
-    width:5%;
-    height: 42px;
+    width:30%;
+    height: 30px;
     background-color: rgb(214, 25, 173);
     color: #fff;
     border-style: none;
-    font-size:50%;
+    font-size:100%;
     margin-top:20px;
   }
 
@@ -58,6 +43,8 @@ Body{
 
   .output{
       margin-top:30px;
-      font-size:25px;
+      font-size:20px;
       color:white;
+      margin-left:10px;
+      margin-right:10px;
   }
