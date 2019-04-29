@@ -1,0 +1,50 @@
+Body{
+    background-image: url("family.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.explain{
+    font-size: 20px;
+    color:white;
+    padding-top: 100px;
+    color:pink;
+  }
+
+  .explain2{
+      font-size: 15px;
+      color:white;
+      margin-left:10px;
+      margin-right:10px;
+  }
+
+  .input1{
+    width: 50%;
+    height: 20px;
+    font-size:100%;
+  }
+
+  .input2{
+    width:30%;
+    height: 30px;
+    background-color: rgb(214, 25, 173);
+    color: #fff;
+    border-style: none;
+    font-size:100%;
+    margin-top:20px;
+  }
+
+  .form2{
+      padding-top:20px;
+  }
+
+  .output{
+      margin-top:30px;
+      font-size:20px;
+      color:white;
+      margin-left:10px;
+      margin-right:10px;
+  }
