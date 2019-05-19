@@ -68,9 +68,9 @@ export class Content extends Component {
     render() {
         return (
             <div ref={el => (this.instance = el)} className="Body">
-                <p className="explain">お二人の誓いを確認します!(近日公開予定)</p>
-                <p className="explain2">お待たせしています。しばらくしてからもう一度ご訪問ください</p>
-                {/* <div className="form">
+                <p className="explain">番号を入力して2人の誓いを確認しよう</p>
+                <p className="explain2">パートナーシップ証明書で得たパスワードを入力してください。誓いの文字を確認しましょう。</p>
+                <div className="form">
                     <form className="form1" name="myform" onSubmit={(e) => this.handleSubmit(e)}>
                         <div>
                             <input name="mytext" placeholder="復号化パスワード" type="text" className="input1" onChange={(e) => this.handleChangeKey(e)} />
@@ -81,7 +81,7 @@ export class Content extends Component {
 
                     <div　className="output">{"誓いの言葉："+ this.state.resp}</div>
                     <div className="output">{"誓いの言葉："+ this.state.con}</div>
-                </div> */}
+                </div>
             </div>
         )
     }
