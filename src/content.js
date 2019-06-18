@@ -49,12 +49,13 @@ export class Content extends Component {
         var iv = buf.slice(0, 16).toString();
         var encryptedData  = buf.toString();
 
-        var decipher = crypto.createDecipheriv('aes-128-cbc', key, iv);
+        var decipher = crypto.createDecipheriv('aes-128-cbc', key, "0000000000000000");
+        console.log(decipher)
         var decrypted = decipher.update(encryptedData, 'base64', 'utf8');
-        decrypted += decipher.final('utf8');
+        decrypted += decipher
 
         this.setState({
-            resp: decrypted
+            resp: decrypted.slice(16)
         })
     }
 
@@ -72,13 +73,13 @@ export class Content extends Component {
                 <p className="explain2">パートナーシップ証明書で得たパスワードを入力してください。誓いの文字を確認しましょう。</p>
                 <div className="form">
                     <form className="form1" name="myform" onSubmit={(e) => this.handleSubmit(e)}>
+
                         <div>
                             <input name="mytext" placeholder="復号化パスワード" type="text" className="input1" onChange={(e) => this.handleChangeKey(e)} />
                         </div>
-                    
                         <button type="submit"  className="input2">送信</button>
+                        
                     </form>
-
                     <div　className="output">{"誓いの言葉："+ this.state.resp}</div>
                     <div className="output">{"誓いの言葉："+ this.state.con}</div>
                 </div>
